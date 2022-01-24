@@ -9,9 +9,18 @@ export default function(){
 		todo:[]
 	});
 
+	const isValidTodo = (tname) => {
+		const isName = state.todo.some( ({name}) => name === tname );
+		const isLength = tname.length === 0;
+		return (isName || isLength);
+	};
+
 	const addTodo = function(item){
+		if( isValidTodo(item.name) ) return false;
+		item.idx = state.todo.length;
 		state.todo = [...state.todo,item];
 		setState(state);
+		return true;
 	}
 	
 	return (
