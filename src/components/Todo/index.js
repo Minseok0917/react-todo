@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import AddInput from './AddInput';
 import TodoList from './TodoList';
+import A from './a';
 
 
 
 export default function(){
+	const [count,setCount] = useState(0);
 	const [state,setState] = useState({
 		todos:[]
 	});
@@ -23,8 +25,9 @@ export default function(){
 		addTodo:function(addItem){
 			if( isValidTodo(addItem.name) ) return false;
 			addItem.idx = getIdx();
-			state.todos = [...state.todos,addItem];
-			setState(state);
+			setState({
+				todos:[...state.todos,addItem]
+			});
 			return true;
 		},
 		removeTodo:function(removeItem){
@@ -37,6 +40,8 @@ export default function(){
 		<div className="todo">
 			<AddInput addTodo={todoCore.addTodo} />
 			<TodoList todos={state.todos} />
+			<A count={count} />
+			<button onClick={ ()=> setCount(count+1) }>addCount</button>
 		</div>
 	);
 }
