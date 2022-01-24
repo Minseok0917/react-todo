@@ -15,18 +15,24 @@ export default function(){
 		return (isName || isLength);
 	};
 
-	const addTodo = function(item){
-		if( isValidTodo(item.name) ) return false;
-		item.idx = state.todo.length;
-		state.todo = [...state.todo,item];
-		setState(state);
-		return true;
+	const todoCore = {
+		addTodo:function(addItem){
+			if( isValidTodo(addItem.name) ) return false;
+			addItem.idx = state.todo.length;
+			state.todo = [...state.todo,addItem];
+			setState(state);
+			return true;
+		},
+		removeTodo:function(removeItem){
+			state.todo = state.todo.filter( item => removeItem !== item );
+			setState(state);
+		},
 	}
 	
 	return (
 		<div className="todo">
-			<AddInput addTodo={addTodo} />
-			<TodoList />
+			<AddInput addTodo={todoCore.addTodo} />
+			<TodoList todos={state.todo} />
 		</div>
 	);
 }
