@@ -18,13 +18,13 @@ export const monthLastDay = function(dateValue){
 	return monthLastDay.getDate();
 }
 
-export const getNextMonth = function(dateValue){
+export const nextMonth = function(dateValue){
 	const month = new Date(dateValue);
 	month.setMonth(month.getMonth()+1);
 	return month;
 }
 
-export const getPrevMonth = function(dateValue){
+export const prevMonth = function(dateValue){
 	const month = new Date(dateValue);
 	month.setMonth(month.getMonth()-1);
 	return month;
@@ -39,12 +39,16 @@ export const YYYMMDD = function(dateValue){
 	};
 }
 
-export default (dateValue)=>({
+
+const calendarPackage = (dateValue)=> ({
 	...YYYMMDD(dateValue),
 	selectDate:getDate(dateValue),
 	monthFirstDayOfWeekNumber:monthFirstDayOfWeekNumber(dateValue),
 	monthLastDay:monthLastDay(dateValue),
 	prevMonthLastDay:monthLastDay(
-		getPrevMonth(dateValue)
+		prevMonth(dateValue)
 	)
 })
+export const nextMonthPackage = (dateValue) => calendarPackage(nextMonth(dateValue));
+export const prevMonthPackage = (dateValue) => calendarPackage(prevMonth(dateValue));
+export default calendarPackage;

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import calendarPackage,{ 
 	getDate,
-	getNextMonth,
-	getPrevMonth
+	nextMonthPackage,
+	prevMonthPackage
 } from './utils';
 
 const maxDayCount = 42;
@@ -34,13 +34,13 @@ const nextMonthBlock = ({monthFirstDayOfWeekNumber,prevMonthLastDay}) => {
  	});
  	const { selectDate } = state;
 
- 	
+
  	// event methods
  	const nextMonthHandle = () => setState({
- 		...calendarPackage(getNextMonth(selectDate))
+ 		...nextMonthPackage(selectDate)
  	});
  	const prevMonthHandle = () => setState({
- 		...calendarPackage(getPrevMonth(selectDate))
+ 		...prevMonthPackage(selectDate)
  	});
 
 
