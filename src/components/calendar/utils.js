@@ -18,13 +18,13 @@ export const monthLastDay = function(dateValue){
 	return monthLastDay.getDate();
 }
 
-export const nextMonth = function(dateValue){
+export const getNextMonth = function(dateValue){
 	const month = new Date(dateValue);
 	month.setMonth(month.getMonth()+1);
 	return month;
 }
 
-export const prevMonth = function(dateValue){
+export const getPrevMonth = function(dateValue){
 	const month = new Date(dateValue);
 	month.setMonth(month.getMonth()-1);
 	return month;
@@ -43,5 +43,8 @@ export default (dateValue)=>({
 	...YYYMMDD(dateValue),
 	selectDate:getDate(dateValue),
 	monthFirstDayOfWeekNumber:monthFirstDayOfWeekNumber(dateValue),
-	monthLastDay:monthLastDay(dateValue)
+	monthLastDay:monthLastDay(dateValue),
+	prevMonthLastDay:monthLastDay(
+		getPrevMonth(dateValue)
+	)
 })
