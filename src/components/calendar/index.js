@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import './index.css';
 import calendarPackage,{ 
-	getDate,
+	weeks,
+	YYYYMMDD,
 	nextMonthPackage,
 	prevMonthPackage
 } from './utils';
@@ -9,28 +11,34 @@ const maxDayCount = 42;
 const prevMonthBlock = ({monthFirstDayOfWeekNumber,prevMonthLastDay}) => {
 	// prevMonthLastDay-monthFirstDayOfWeekNumber+idx+1
 	return Array(monthFirstDayOfWeekNumber).fill().map( (_,idx) => (
-		<p>{prevMonthLastDay-idx}</p>
+		<div className="body item prev-month" key={idx}>
+			{prevMonthLastDay-idx}
+		</div>
 	)).reverse();
 };
 const currentMonthBlock = ({monthLastDay}) => {
 	return Array(monthLastDay).fill().map((_,idx)=>(
-		<p>{idx+1}</p>
+		<div className="body item current-month" key={idx}>
+			{idx+1}
+		</div>
 	));
 };
 const nextMonthBlock = ({monthFirstDayOfWeekNumber,prevMonthLastDay}) => {
 	const nextDayCount = maxDayCount-monthFirstDayOfWeekNumber-prevMonthLastDay;
 	return Array(nextDayCount).fill().map((_,idx)=>(
-		<p>{idx+1}</p>
+		<div className="body item next-month" key={idx}>
+			{idx+1}
+		</div>
 	));
-}
+};
 
 
 
  export default function(){
  	// variable
- 	const today = getDate();
+ 	const today = YYYYMMDD(new Date());
  	const [state,setState] = useState({
- 		...calendarPackage(today)
+ 		...calendarPackage()
  	});
  	const { selectDate } = state;
 
@@ -45,11 +53,22 @@ const nextMonthBlock = ({monthFirstDayOfWeekNumber,prevMonthLastDay}) => {
 
 
  	return(
- 		<div className="calendar">
- 			{state.selectDate}
-		 	{prevMonthBlock(state)}
-		 	{currentMonthBlock(state)}
-		 	{nextMonthBlock(state)}
+ 		<div className="calendar-app">
+ 			<div className="app-block image-container">
+	 			<div className="image-block">
+	 				<img src='https://cdn.pixabay.com/photo/2022/01/17/12/37/venice-6944590_960_720.jpg' />
+	 			</div>
+ 			</div>
+ 			<div className="app-block calendar-container">
+	 			<div className="item-container">
+		 			{weeks.map( (week,idx) => 
+		 				<div className="item head" key={idx}>{week}</div> 
+		 			)}
+				 	{prevMonthBlock(state)}
+				 	{currentMonthBlock(state)}
+				 	{nextMonthBlock(state)}
+	 			</div>
+ 			</div>
  		</div>
  	);
  }

@@ -1,9 +1,5 @@
-import dayjs from 'dayjs';
 
-
-export const getDate = function(dateValue){
-	return dayjs(dateValue).format('YYYY-MM-DD');
-}
+export const weeks = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
 export const monthFirstDayOfWeekNumber = function(dateValue){
 	const monthFirstDay =  new Date(dateValue);
@@ -30,24 +26,29 @@ export const prevMonth = function(dateValue){
 	return month;
 }
 
-export const YYYMMDD = function(dateValue){
+export const YYYYMMDD = function(dateValue){
 	const date = new Date(dateValue)
+	const year = date.getFullYear();
+	const month = ('0'+(date.getMonth()+1)).slice(-2);
+	const day = date.getDate();
 	return {
-		year:date.getFullYear(),
-		month:date.getMonth()+1,
-		day:date.getDate()
+		YYYYMM:`${year}${month}`,
+		year,
+		month,
+		day,
 	};
 }
 
 
-const calendarPackage = (dateValue)=> ({
-	...YYYMMDD(dateValue),
-	selectDate:getDate(dateValue),
+const calendarPackage = (dateValue = new Date())=> ({
+	selectDate:YYYYMMDD(dateValue),
+	prevMonth:YYYYMMDD(prevMonth(dateValue)),
+	nextMonth:YYYYMMDD(nextMonth(dateValue)),
 	monthFirstDayOfWeekNumber:monthFirstDayOfWeekNumber(dateValue),
 	monthLastDay:monthLastDay(dateValue),
 	prevMonthLastDay:monthLastDay(
 		prevMonth(dateValue)
-	)
+	),
 })
 export const nextMonthPackage = (dateValue) => calendarPackage(nextMonth(dateValue));
 export const prevMonthPackage = (dateValue) => calendarPackage(prevMonth(dateValue));
