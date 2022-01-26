@@ -54,19 +54,14 @@ const nextMonthBlock = ({monthFirstDayOfWeekNumber,prevMonthLastDay}) => {
 
  	return(
  		<div className="calendar-app">
- 			<div className="app-block image-container">
-	 			<div className="image-block">
-	 				<img src='https://cdn.pixabay.com/photo/2022/01/17/12/37/venice-6944590_960_720.jpg' />
-	 			</div>
- 			</div>
  			<div className="app-block calendar-container">
 	 			<div className="item-container">
 		 			{weeks.map( (week,idx) => 
 		 				<div className="item head" key={idx}>{week}</div> 
 		 			)}
-				 	{prevMonthBlock(state)}
-				 	{currentMonthBlock(state)}
-				 	{nextMonthBlock(state)}
+	 				{prevMonthBlock(state)}
+					{currentMonthBlock(state)}
+					{nextMonthBlock(state)}
 	 			</div>
  			</div>
  		</div>

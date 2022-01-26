@@ -1,11 +1,12 @@
+/*
 .calendar-app{
 	display: flex;
 	height: 100vh;
 }
-.calendar-app .app-block{ flex:1; }
+.calendar-app .app-block{ flex:1; }*/
 
 /* image-container */
-.calendar-app .image-container{
+/*.calendar-app .image-container{
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -13,10 +14,10 @@
 .calendar-app .image-container .image-block{
 	width: 60%;
 	height: 85%;
-}
+}*/
 
 /* calendar-container */
-.calendar-app .calendar-container{
+/*.calendar-app .calendar-container{
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
@@ -44,4 +45,4 @@
 
 .calendar-app .calendar-container .item:is(.prev-month,.next-month){
 	visibility: hidden;
-}
+}*/
