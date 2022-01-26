@@ -1,9 +1,18 @@
-import Calendar from './components/calendar';
+// import Calendar from './components/calendar';
+import {
+	TheHeader,
+	TheNav,
+	TheFooter
+} from './components/template';
+import Router from './router';
 
 function App() {
   return (
     <div className="App">
-      <Calendar />
+		<TheHeader	/>
+		<TheNav	/>
+		<Router />
+		<TheFooter	/>
     </div>
   );
 }
