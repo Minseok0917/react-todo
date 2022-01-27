@@ -5,8 +5,9 @@ import {
 import {
 	Home,
 	Calendar,
-	Statistic
-} from '../views/'
+	Statistic,
+	Todo
+} from '../views/';
 
 
 export default function(){
@@ -14,6 +15,7 @@ export default function(){
 		<Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="/calendar" element={<Calendar />} />
+			<Route path="/todo/:date" element={<Todo /> } />
 			<Route path="/statistic" element={<Statistic />} />
 		</Routes>
 	);
