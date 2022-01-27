@@ -1,0 +1,79 @@
+.todo-app{
+	
+}
+
+.todo-app .title-container{
+	padding: 1.5rem 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.todo-app .title-container .title{
+	font-size: 1.75rem;
+	font-weight: 900;
+	color: #883ac3;
+}
+
+.todo-app .title-container .btn{
+	background: #eee;
+	padding: 0.5rem 1rem;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.todo-app .todo-container{
+	height: 650px;
+	display: flex;
+	gap:3rem;
+}
+
+.todo-app .todo-container .todo-area{
+	padding: 0 1rem;
+	flex:1;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #ece3ff;
+	box-shadow: 0px 5px 15px #f1ebff;
+	overflow: auto;
+}
+
+.todo-app .todo-container .title{
+	position: sticky;
+	background: #fff;
+	top: 0;
+	padding: 1rem 0;
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: #888
+}
+
+.todo-app .todo-area .item-container .item{
+	padding: 1rem 0.75rem;
+	font-size: 0.85em;
+	color: #888;
+	font-weight: 300;
+	border-bottom: 1px solid #eee;
+}
+.todo-app .todo-area .item-container .item:last-child{
+	border-bottom: 0;
+}
+.todo-app .todo-area .item-container .item>p{ 
+}
+
+::-webkit-scrollbar {
+  width: 5px;  /* 세로축 스크롤바 길이 */
+  height: 5px;  /* 가로축 스크롤바 길이 */
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #eee;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #cdc1df;
+}
+::-webkit-scrollbar-thumb:active{
+	background: #ae99cd;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
