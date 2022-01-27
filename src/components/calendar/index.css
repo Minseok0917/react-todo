@@ -1,6 +1,3 @@
-.calendar-app{
-	padding: 0 5rem;
-}
 .calendar-app .calendar-container{
 
 }
@@ -43,10 +40,6 @@
 	font-weight: 400;
 }
 
-/*.calendar-app .calendar-container .item-container .item:nth-child(7n+1){
-	color: red;
-}*/
-
 .calendar-app .calendar-container .item-container .item.head{
 	padding: 2rem 0;
 	color: #888;
@@ -58,6 +51,7 @@
 	padding: 0.75rem;
 	height: 5.75rem;
 }
+
 .calendar-app .calendar-container .item-container .item.body .day{
 	text-align: left;
 }
