@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './index.css';
 import calendarPackage,{ 
 	weeks,
+	months,
 	YYYYMMDD,
 	nextMonthPackage,
 	prevMonthPackage
@@ -12,22 +13,23 @@ const prevMonthBlock = ({monthFirstDayOfWeekNumber,prevMonthLastDay}) => {
 	// prevMonthLastDay-monthFirstDayOfWeekNumber+idx+1
 	return Array(monthFirstDayOfWeekNumber).fill().map( (_,idx) => (
 		<div className="body item prev-month" key={idx}>
-			{prevMonthLastDay-idx}
+			<p className="day">{prevMonthLastDay-idx}</p>
 		</div>
 	)).reverse();
 };
 const currentMonthBlock = ({monthLastDay}) => {
 	return Array(monthLastDay).fill().map((_,idx)=>(
 		<div className="body item current-month" key={idx}>
-			{idx+1}
+			<p className="day">{idx+1}</p>
 		</div>
 	));
 };
-const nextMonthBlock = ({monthFirstDayOfWeekNumber,prevMonthLastDay}) => {
-	const nextDayCount = maxDayCount-monthFirstDayOfWeekNumber-prevMonthLastDay;
+const nextMonthBlock = ({monthFirstDayOfWeekNumber,monthLastDay}) => {
+	console.log(monthFirstDayOfWeekNumber,monthLastDay);
+	const nextDayCount = maxDayCount-monthFirstDayOfWeekNumber-monthLastDay;
 	return Array(nextDayCount).fill().map((_,idx)=>(
 		<div className="body item next-month" key={idx}>
-			{idx+1}
+			<p className="day">{idx+1}</p>
 		</div>
 	));
 };
@@ -45,16 +47,24 @@ const nextMonthBlock = ({monthFirstDayOfWeekNumber,prevMonthLastDay}) => {
 
  	// event methods
  	const nextMonthHandle = () => setState({
- 		...nextMonthPackage(selectDate)
+ 		...nextMonthPackage(selectDate.$YYYYMMDD)
  	});
  	const prevMonthHandle = () => setState({
- 		...prevMonthPackage(selectDate)
+ 		...prevMonthPackage(selectDate.$YYYYMMDD)
  	});
 
+ 	console.log(state);
 
  	return(
  		<div className="calendar-app">
  			<div className="app-block calendar-container">
+ 				<div className="title-container">
+ 					<div className="month-btn" onClick={prevMonthHandle}> ‹ </div>
+ 					<h2 className="title">
+ 						{ state.selectDate.monthName } { state.selectDate.year }
+ 					</h2>
+ 					<div className="month-btn" onClick={nextMonthHandle}> › </div>
+ 				</div>
 	 			<div className="item-container">
 		 			{weeks.map( (week,idx) => 
 		 				<div className="item head" key={idx}>{week}</div> 
