@@ -1,9 +1,10 @@
 import './index.css';
+import Calendar from '../../components/calendar';
 
 export default function(){
 	return (
 		<section>
-			달력
+			<Calendar />
 		</section>
 	);
 }
