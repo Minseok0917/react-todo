@@ -12,7 +12,7 @@ function App() {
 		<TheHeader	/>
 		<TheNav	/>
 		<Router />
-		<TheFooter	/>
+		{/*<TheFooter	/>*/}
     </div>
   );
 }
