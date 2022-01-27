@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './index.css';
 import calendarPackage,{ 
 	weeks,
@@ -9,27 +10,33 @@ import calendarPackage,{
 } from './utils';
 
 const maxDayCount = 42;
-const prevMonthBlock = ({monthFirstDayOfWeekNumber,prevMonthLastDay}) => {
+
+const prevMonthBlock = ({monthFirstDayOfWeekNumber,prevMonthLastDay,selectDate}) => {
 	// prevMonthLastDay-monthFirstDayOfWeekNumber+idx+1
 	return Array(monthFirstDayOfWeekNumber).fill().map( (_,idx) => (
 		<div className="body item prev-month" key={idx}>
-			<p className="day">{prevMonthLastDay-idx}</p>
+			<p className="day">
+				<Link to={`/todo/${selectDate.YYYYMM}${ `0${prevMonthLastDay-idx}`.slice(-2) }`}>{prevMonthLastDay-idx}</Link>
+			</p>
 		</div>
 	)).reverse();
 };
-const currentMonthBlock = ({monthLastDay}) => {
+const currentMonthBlock = ({monthLastDay,selectDate}) => {
 	return Array(monthLastDay).fill().map((_,idx)=>(
 		<div className="body item current-month" key={idx}>
-			<p className="day">{idx+1}</p>
+			<p className="day">
+				<Link to={`/todo/${selectDate.YYYYMM}${ `0${idx+1}`.slice(-2) }`}>{idx+1}</Link>
+			</p>
 		</div>
 	));
 };
-const nextMonthBlock = ({monthFirstDayOfWeekNumber,monthLastDay}) => {
-	console.log(monthFirstDayOfWeekNumber,monthLastDay);
+const nextMonthBlock = ({monthFirstDayOfWeekNumber,monthLastDay,selectDate}) => {
 	const nextDayCount = maxDayCount-monthFirstDayOfWeekNumber-monthLastDay;
 	return Array(nextDayCount).fill().map((_,idx)=>(
 		<div className="body item next-month" key={idx}>
-			<p className="day">{idx+1}</p>
+			<p className="day">
+				<Link to={`/todo/${selectDate.YYYYMM}${ `0${idx+1}`.slice(-2) }`}>{idx+1}</Link>
+			</p>
 		</div>
 	));
 };
@@ -52,8 +59,6 @@ const nextMonthBlock = ({monthFirstDayOfWeekNumber,monthLastDay}) => {
  	const prevMonthHandle = () => setState({
  		...prevMonthPackage(selectDate.$YYYYMMDD)
  	});
-
- 	console.log(state);
 
  	return(
  		<div className="calendar-app">
