@@ -1,4 +1,4 @@
-
+export const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 export const weeks = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
 export const monthFirstDayOfWeekNumber = function(dateValue){
@@ -29,10 +29,13 @@ export const prevMonth = function(dateValue){
 export const YYYYMMDD = function(dateValue){
 	const date = new Date(dateValue)
 	const year = date.getFullYear();
-	const month = ('0'+(date.getMonth()+1)).slice(-2);
+	const month = date.getMonth();
+	const $month = ('0'+(month+1)).slice(-2);
 	const day = date.getDate();
 	return {
-		YYYYMM:`${year}${month}`,
+		YYYYMM:`${year}${$month}`,
+		$YYYYMMDD:`${year}-${$month}-${day}`,
+		monthName:months[month],
 		year,
 		month,
 		day,
