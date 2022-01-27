@@ -1,48 +1,69 @@
-/*
 .calendar-app{
-	display: flex;
-	height: 100vh;
+	padding: 0 5rem;
 }
-.calendar-app .app-block{ flex:1; }*/
+.calendar-app .calendar-container{
 
-/* image-container */
-/*.calendar-app .image-container{
+}
+
+/* title-container */
+.calendar-app .title-container{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 1.5rem 0;
 }
-.calendar-app .image-container .image-block{
-	width: 60%;
-	height: 85%;
-}*/
+.calendar-app .title-container .title{
+	width: 250px;
+	padding: 0 1.75rem;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+.calendar-app .title-container .month-btn{
+	font-size: 1.5rem;
+	user-select: none;
+	cursor: pointer;
+	color: #888;
+}
 
-/* calendar-container */
-/*.calendar-app .calendar-container{
-	display: flex;
-	justify-content: center;
-	align-items: flex-end;
-}
+/* item-container */
 .calendar-app .calendar-container .item-container{
 	display: grid;
-	width: 50%;
 	grid-template-columns: repeat(7,1fr);
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid #ece3ff;
+	box-shadow: 0px 5px 15px #f1ebff;
 }
 
 .calendar-app .calendar-container .item-container .item{
 	text-align: center;
 }
-
-.calendar-app .calendar-container .item-container .item:nth-child(7n+1){
-	color: red;
+.calendar-app .calendar-container .item-container .item .day{
+	font-weight: 400;
 }
+
+/*.calendar-app .calendar-container .item-container .item:nth-child(7n+1){
+	color: red;
+}*/
 
 .calendar-app .calendar-container .item-container .item.head{
 	padding: 2rem 0;
+	color: #888;
+	text-transform: uppercase;
+	font-weight: 300;
 }
 .calendar-app .calendar-container .item-container .item.body{
-	padding: 1rem 0;
+	position: relative;
+	padding: 0.75rem;
+	height: 5.75rem;
+}
+.calendar-app .calendar-container .item-container .item.body .day{
+	text-align: left;
 }
 
-.calendar-app .calendar-container .item:is(.prev-month,.next-month){
-	visibility: hidden;
-}*/
+.calendar-app .calendar-container .item:is(.prev-month,.next-month) .day{
+	/*visibility: hidden;*/
+	font-weight: 300;
+	color: #ccc;
+}
