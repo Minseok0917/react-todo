@@ -1,7 +1,14 @@
+import { useState } from 'react';
+import ModalCreateTodo from '../modal/createTodo';
 import './index.css';
 
 
 export default function({date}){
+	const [modalState,setModalSetate] = useState({
+		createTodo:false
+	});
+
+
 	return (
 		<div className="todo-app">
 			<div className="title-container">
@@ -54,6 +61,7 @@ export default function({date}){
 					<h3 className="title">완료</h3>
 				</div>
 			</div>
+			<ModalCreateTodo />
 		</div>
 	);
 }
