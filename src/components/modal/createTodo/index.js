@@ -1,19 +1,22 @@
 import { createRef , useState } from 'react';
 import Modal from '../modal';
-import Markdown from '../../../plugin/markdown';
 import './index.css';
 
 
 
 
-export default function(){
+export default function({close,addTodo}){
 	const defaultData = `# 안녕하세요\n# FE 개발자 정민석입니다.`;
 	const $title = createRef();
 	const $textarea = createRef();
 
-	const [html,setHTML] = useState('');
 	const result = function(){
-		setHTML(Markdown($textarea.current.value))
+		addTodo({
+			title:$title.current.value,
+			description:$textarea.current.value
+		});
+		alert('정상 추가 되었습니다!');
+		close();
 	}
 
 
@@ -36,7 +39,6 @@ export default function(){
 						<label className="label" htmlFor="content">내용</label>
 						<textarea className="textarea" id="content" ref={$textarea}></textarea>
 					</div>
-				 	<div dangerouslySetInnerHTML={{ __html:html }} />
 				</div>
 			);
 		},
@@ -45,7 +47,7 @@ export default function(){
 				<div className="modal-footer">
 					<div className="btn-container">
 						<button className="btn purple" onClick={result} >완료</button>
-						<button className="btn">취소</button>
+						<button className="btn" onClick={ close }>취소</button>
 					</div>
 				</div>
 			);
@@ -53,6 +55,6 @@ export default function(){
 	}
 
 	return (
-		<Modal child={child} />
+		<Modal child={child} close={close} />
 	)
 }
