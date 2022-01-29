@@ -1,0 +1,53 @@
+.markdown pre{
+	overflow: auto;
+	max-width: 1020px;
+	max-height: 500px;
+	background: #383838;
+	padding: 0.5rem;
+	line-height: 1.2;
+}
+.markdown pre [class^="language"]{
+	color: #fff;
+}
+.markdown pre .hljs-tag{
+	color: #fff;
+}
+.markdown pre .hljs-params{
+	color: #fff;
+}
+
+.markdown p code{ padding: 0.5rem; background: #eee; border-radius: 5px; font-size: 0.75rem; }
+
+
+.markdown>*:not(hr){
+	padding-top: 1rem;
+	line-height: 1.5;
+}
+.markdown>*:first-chidl{
+	padding-top: 0;
+}
+.markdown>ul{
+	padding: 0.5rem 0;
+}
+
+.markdown h1{ font-size: 2rem;  border-bottom: 1px solid #eee;  }
+.markdown h2{ font-size: 1.75rem;  border-bottom: 1px solid #eee;  }
+.markdown h3{ font-size: 1.5rem; }
+.markdown h4{ font-size: 1.25rem; }
+.markdown h5{ font-size: 1rem; }
+.markdown h6{ font-size: 0.75rem; }
+
+.markdown blockquote{ border-left: 3px solid #ccc; padding-left: 0.75rem; }
+
+
+.markdown li{ line-height: 1.75; }
+.markdown ol li{
+    list-style-type: decimal;
+}
+.markdown ul li{
+	list-style-type: disc;
+}
+.markdown ol,
+.markdown ul{
+	padding-left: 1.75rem;
+}
