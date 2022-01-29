@@ -16,12 +16,15 @@
 	color: #fff;
 }
 
-.markdown p code{ padding: 0.5rem; background: #eee; border-radius: 5px; font-size: 0.75rem; }
+.markdown p code{ padding: 0.25rem 0.5rem; background: #eee; border-radius: 5px; font-size: 0.75rem; }
 
 
 .markdown>*:not(hr){
-	padding-top: 1rem;
+	margin: 1rem 0;
 	line-height: 1.5;
+}
+.markdown :is(ul,ol,p){
+	line-height: 1.7;
 }
 .markdown>*:first-chidl{
 	padding-top: 0;
@@ -50,4 +53,19 @@
 .markdown ol,
 .markdown ul{
 	padding-left: 1.75rem;
+}
+.markdown table{
+	border-collapse: collapse;
+}
+.markdown table th{
+	border: 1px solid #eee;
+	padding: 0.6rem 1rem;
+}
+.markdown table td{
+	padding: 0.5rem;
+	border: 1px solid #eee;
+}
+
+.markdown tr:nth-child(2n) {
+    background-color: #f6f8fa;
 }
