@@ -10,9 +10,9 @@ export default function({todoItem,close}){
 	const child = {
 		header:function(){
 			return (
-				<div className="modal-header">
+				<div className="modal-header space-between">
 					<h2 className="title">{todoItem.title}</h2>
-					<button onClick={close}>X</button>
+					<button className="close-btn" onClick={close}>X</button>
 				</div>
 			);
 		},

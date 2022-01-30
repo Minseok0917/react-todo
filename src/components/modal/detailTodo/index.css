@@ -1,3 +1,16 @@
+
+.modal-header{ padding:0.75rem 0; box-shadow: 0px 3px 0px #eee;}
+.modal-header.space-between{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.modal-header .close-btn{
+	font-size: 1rem;
+	color: #999;
+}
+
 .markdown pre{
 	overflow: auto;
 	max-width: 1020px;
