@@ -39,6 +39,7 @@
 
 .todo-app .todo-container .title{
 	position: sticky;
+	user-select: none;
 	background: #fff;
 	top: 0;
 	padding: 1rem 0;
@@ -48,6 +49,7 @@
 }
 
 .todo-app .todo-area .item-container .item{
+	user-select: none;
 	padding: 1rem 0.75rem;
 	font-size: 0.85em;
 	color: #888;
