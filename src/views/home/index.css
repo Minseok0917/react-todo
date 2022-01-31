@@ -1,0 +1,14 @@
+.drag-container{
+	display: flex;	
+	gap:1rem;
+}
+.drag-container .area{
+	padding: 0.5rem;
+	border: 1px solid #aaa;
+	flex:1;
+}
+
+.drag-container .area .item{
+	padding: 0.5rem 0;	
+	font-size: 1.5rem;
+}
