@@ -16,7 +16,7 @@ const prevMonthBlock = ({monthFirstDayOfWeekNumber,prevMonthLastDay,selectDate})
 	return Array(monthFirstDayOfWeekNumber).fill().map( (_,idx) => (
 		<div className="body item prev-month" key={idx}>
 			<p className="day">
-				<Link to={`/todo/${selectDate.YYYYMM}${ `0${prevMonthLastDay-idx}`.slice(-2) }`}>{prevMonthLastDay-idx}</Link>
+				<Link to={`/calendar/${selectDate.YYYYMM}${ `0${prevMonthLastDay-idx}`.slice(-2) }`}>{prevMonthLastDay-idx}</Link>
 			</p>
 		</div>
 	)).reverse();
@@ -25,7 +25,7 @@ const currentMonthBlock = ({monthLastDay,selectDate}) => {
 	return Array(monthLastDay).fill().map((_,idx)=>(
 		<div className="body item current-month" key={idx}>
 			<p className="day">
-				<Link to={`/todo/${selectDate.YYYYMM}${ `0${idx+1}`.slice(-2) }`}>{idx+1}</Link>
+				<Link to={`/calendar/${selectDate.YYYYMM}${ `0${idx+1}`.slice(-2) }`}>{idx+1}</Link>
 			</p>
 		</div>
 	));
@@ -35,7 +35,7 @@ const nextMonthBlock = ({monthFirstDayOfWeekNumber,monthLastDay,selectDate}) => 
 	return Array(nextDayCount).fill().map((_,idx)=>(
 		<div className="body item next-month" key={idx}>
 			<p className="day">
-				<Link to={`/todo/${selectDate.YYYYMM}${ `0${idx+1}`.slice(-2) }`}>{idx+1}</Link>
+				<Link to={`/calendar/${selectDate.YYYYMM}${ `0${idx+1}`.slice(-2) }`}>{idx+1}</Link>
 			</p>
 		</div>
 	));

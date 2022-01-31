@@ -15,7 +15,7 @@ export default function(){
 		<Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="/calendar" element={<Calendar />} />
-			<Route path="/todo/:date" element={<Todo /> } />
+			<Route path="/calendar/:date" element={<Todo /> } />
 			<Route path="/statistic" element={<Statistic />} />
 		</Routes>
 	);
