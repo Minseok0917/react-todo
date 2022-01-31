@@ -1,5 +1,13 @@
 import './index.css';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import {
+	FaBookmark,
+	FaRegBookmark,
+	FaRegCalendar,
+	FaCalendar,
+	FaRegFolder,
+	FaFolder
+} from 'react-icons/fa';
 
 
 export default function(){
@@ -12,13 +20,22 @@ export default function(){
 			</div>
 			<div className="menu-block">
 				<div className="item">
-					<Link to="/">홈</Link>					
+					<NavLink to="/">
+						<FaRegBookmark size="32px" fill="#fff" />
+						<FaBookmark size="32px" fill="#fff" />
+					</NavLink>					
 				</div>
 				<div className="item">
-					<Link to="/calendar">달력</Link>
+					<NavLink to="/calendar" >
+						<FaRegCalendar size="32px" fill="#fff" />
+						<FaCalendar size="32px" fill="#fff" />
+					</NavLink>
 				</div>
 				<div className="item">
-					<Link to="/statistic">통계</Link>
+					<NavLink to="/statistic">
+						<FaRegFolder size="32px" fill="#fff" />
+						<FaFolder size="32px" fill="#fff" />
+					</NavLink>
 				</div>
 			</div>
 		</nav>

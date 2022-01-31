@@ -22,11 +22,21 @@ nav .logo-block h1{
 
 
 nav .menu-block{
-	padding: 2rem 1rem 0;
+	padding: 2rem 0 0;
 }
 
 nav .menu-block .item{
-	padding: 1.5rem 0;
+	padding: 1rem 0;
 	text-align: center;
 	color: #fff;
+}
+
+nav .menu-block .item a svg:last-child{
+	display: none;
+}
+nav .menu-block .item a.active svg:first-child{
+	display: none;
+}
+nav .menu-block .item a.active svg:last-child{
+	display: inline-block;
 }
