@@ -25,6 +25,7 @@ export default function({date}){
 	const [todoState,setTodoState] = useState(loadTodo);
 	const modalController = function(key,status){
 		setModalState({
+			...modalState,
 			[key]:status
 		});
 	};
@@ -36,7 +37,7 @@ export default function({date}){
 		movePos.y = e.pageY;
 	};
 	const globalMouseUp = function(){
-		if( !isDrag || !isDown || Object.keys(modalState).some( isModal => isModal ) ) return;
+		if( !isDrag  || Object.values(modalState).some( isModal => isModal === true ) ) return;
 
 		if( selectStatus.length ){
 			selectTodo.status = selectStatus;
